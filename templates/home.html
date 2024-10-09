@@ -7,17 +7,49 @@
     <title>Blogerinos</title>
 </head>
 <body>
+    <!--Create Post -->
     <form method="post">
         <label for="author">Author</label>
         <input type="text" name="author"/>
         
-        <label for="date">Date</label>
-        <input type="date" name="date"/>
-
         <label for="text">Text</label>
         <input type="text" name="text"/>
 
-        <button type="submit">Hello there</button>
+        <button name="create-post" type="submit">Create Post</button>
     </form>
+    <!-- Get All Posts -->
+     <form method="post">
+        <button name="get-all" type="submit">Get all posts</button>
+     </form>
+    <!-- Get Post By Id -->
+    <form method="post">
+        <label for="id">ID</label>
+        <input type="number" name="id">
+
+        <button name="get-post" type="submit">Get Post By Id</button>
+    </form>
+    <!-- Delete Post By Id -->
+    <form method="post">
+        <label for="id">ID</label>
+        <input type="number" name="id">
+
+        <button name="delete-post" type="submit">Delete Post By Id</button>
+    </form>
+    <!-- Patch Post By Id -->
+    <form method="post">
+        <label for="id">ID</label>
+        <input type="number" name="id">
+
+        <label for="new-text">New text</label>
+        <input type="text" name="new-text">
+
+        <button name="patch-post" type="submit">Patch Post By Id</button>
+    </form>
+    <div>
+        {% if results %}
+            {{ results }}
+        {% endif %}
+    </div>
+    
 </body>
 </html>
