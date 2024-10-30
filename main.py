@@ -17,6 +17,7 @@ def create_app():
     app = Flask(__name__)
     
     @app.route('/home', methods=['GET', 'POST'])
+    @app.route('/', methods=['GET', 'POST'])
     def home():
         global message
         global error
