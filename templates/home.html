@@ -1,55 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post" class="create-form">
+        <label for="text">Text:</label>
+        <input type="text" name="text">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogerinos</title>
-</head>
-<body>
-    <!--Create Post -->
-    <form method="post">
-        <label for="author">Author</label>
-        <input type="text" name="author"/>
-        
-        <label for="text">Text</label>
-        <input type="text" name="text"/>
-
-        <button name="create-post" type="submit">Create Post</button>
+        <input type="submit", name="create-post", value="Create post">
     </form>
-    <!-- Get All Posts -->
-     <form method="post">
-        <button name="get-all" type="submit">Get all posts</button>
-     </form>
-    <!-- Get Post By Id -->
-    <form method="post">
-        <label for="id">ID</label>
+    <form method="post" class="get-all-form">
+        <input type="submit" name="get-all" value="Get all">
+    </form>
+    <form method="post" class="get-id-form">
+        <label for='id'>ID:</label>
         <input type="number" name="id">
 
-        <button name="get-post" type="submit">Get Post By Id</button>
+        <input type="submit" name="get-post", value="Get post">
     </form>
-    <!-- Delete Post By Id -->
-    <form method="post">
-        <label for="id">ID</label>
+    <form method="post" class="delete-id-form">
+        <label for='id'>ID:</label>
         <input type="number" name="id">
 
-        <button name="delete-post" type="submit">Delete Post By Id</button>
+        <input type="submit" name="delete-post", value="Delete post">
     </form>
-    <!-- Patch Post By Id -->
-    <form method="post">
-        <label for="id">ID</label>
+    <form method="post" class="patch-id-form">
+        <label for='id'>ID:</label>
         <input type="number" name="id">
 
-        <label for="new-text">New text</label>
+        <label for="new-text">New text:</label>
         <input type="text" name="new-text">
 
-        <button name="patch-post" type="submit">Patch Post By Id</button>
+        <input type="submit" name="patch-post", value="Patch post">
     </form>
-    <div>
-        {% if results %}
-            {{ results }}
-        {% endif %}
+    <div class="output">
+        {% for result in results %}
+            <div>{{ result }}</div>
+        {% endfor %}
     </div>
-    
-</body>
-</html>
+{% endblock %}

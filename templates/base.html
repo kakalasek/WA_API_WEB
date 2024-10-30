@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/base.css')}}">
+</head>
+<body>
+    <div class="topnav">
+        <a href="/home">Home</a>
+        <a href="login">Login</a>
+        <a href="register">Register</a>
+        <a href="logout">Logout</a>
+    </div>
+    <div class="username">
+        {% if username %}
+            <h3>{{ username }}</h3>
+        {% else %}
+            <h3>Not logged in</h3>
+        {% endif %}
+    </div>
+    {% block content %}
+
+    {% endblock %}
+    <div class="results">
+        <div>Message: {{ message }}</div>
+        <div>Error: {{ error }}</div>
+    </div>
+</body>
+</html>
